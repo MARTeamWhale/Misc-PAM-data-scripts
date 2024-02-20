@@ -24,7 +24,7 @@ tic
 
 % recursively find all wav files and ltsa files
 wavfiles = dir(fullfile(parentdir, '**\*.wav'));
-%ltsafiles = dir(fullfile(parentdir, '**\*.ltsa'));
+ltsafiles = dir(fullfile(parentdir, '**\*.ltsa'));
 
 %% Loop through wav files and move to parent folder
 
@@ -38,13 +38,13 @@ end
     
 %% Loop through ltsa files and move to new LTSA folder
 
-% for lf = 1:length(ltsafiles)
-%     
-%     fullfilepath = fullfile(ltsafiles(wf).folder, ltsafiles(wf).name);
-%     
-%     movefile(fullfilepath, parentdir)
-%     
-% end
+for lf = 1:length(ltsafiles)
+    
+    fullfilepath = fullfile(ltsafiles(wf).folder, ltsafiles(wf).name);
+    
+    movefile(fullfilepath, parentdir)
+    
+end
 
 %% Delete empty subfolders
 
