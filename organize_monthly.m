@@ -45,16 +45,16 @@ end
 
 for f = 1:length(files)
     
-    % get full path to file f
+    % get full path to file
     fullfilepath = fullfile(infilepath, files(f).name);
 
-    % get year and month for file f (as string)
+    % get year and month of file (as string)
     f_folder = string(filedate(f)); 
 
     % get full path to correct month folder
     monthfolderpath = fullfile(infilepath, f_folder);
     
-    % move file f to month folder
+    % move file to month folder
     movefile(fullfilepath, monthfolderpath)
     
 end
