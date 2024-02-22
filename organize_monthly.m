@@ -18,7 +18,7 @@
 %% Select directory (modify line 21)
 
 % path to input .wav file directory (must end with \)
-infilepath = 'C:\Users\STANISTREETJ\Desktop\test_movefiles\AMAR388.1.32000.HTI-99-HF\';
+infilepath = 'D:\GMB_2022_10\AMAR388.1.32000.HTI-99-HF\';
 
 
 %% Set up

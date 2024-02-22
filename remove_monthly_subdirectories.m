@@ -40,7 +40,7 @@ end
 
 for lf = 1:length(ltsafiles)
     
-    fullfilepath = fullfile(ltsafiles(wf).folder, ltsafiles(wf).name);
+    fullfilepath = fullfile(ltsafiles(lf).folder, ltsafiles(lf).name);
     
     movefile(fullfilepath, parentdir)
     
