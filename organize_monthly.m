@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Script to organize .wav files into subfolders by year and month for the purpose of
-% creating monthly LTSAs
+% Script to organize .wav files into subfolders by desired interval for the purpose of
+% creating grouped LTSAs
 
-    % J. Stanistreet, 19 February 2024 (MATLAB R2020a)
-
+    % Written by: J. Stanistreet, 19 February 2024 (MATLAB R2020a)
+    % Last Updated by: Mike Adams, 13 May 2024 (MATLAB R2020a)
 % DESCRIPTION:
 
-    % Takes a deployment folder (directory of .wav files) as input, creates monthly
-    % subfolders and moves .wav files into subfolders based on date in file name
+    % Takes a deployment folder (directory of .wav files) as input, creates
+    % subfolders of desired interval and moves .wav files into subfolders based on datetime in file name
 
 % DEPENDENCIES:
 
@@ -18,8 +18,11 @@
 %% Select directory (modify line 21)
 
 % path to input .wav file directory (must end with \)
-infilepath = 'D:\GMB_2022_10\AMAR388.1.32000.HTI-99-HF\';
+infilepath = 'D:\DAVIS_STRAIT_SoundTrap\DSC3_2020_09\Group_test\';
 
+% Set desired interval
+eventMergeOpt = 'calendar'; %%% Options are 'calendar', or 'timebin'
+eventMergeVal = 'month'; %%% MATLAB duration object (timebin) or string (for calendar)
 
 %% Set up
 
@@ -28,16 +31,24 @@ tic
 % get list of wav file names
 files = dir([infilepath '*.wav']);
 
-% read datetime stamps from file names and format as year-month
-filedate = MUCA.time.readDateTime({files.name}, 'yyyy-MM');
+% read datetime stamps from file names
+filedate = MUCA.time.readDateTime({files.name})';
+
+FirstDT = min(filedate);
+LastDT = max(filedate);
+
+
+
+
+
 
 % get unique year-month combinations and format as string for folder names
-yearmonth = unique(string(filedate));
+datetimes = unique(string(filedate));
 
 % create monthly subfolders (mkdir function is not vectorized so have to use a loop here)
-for ym = 1:length(yearmonth)
+for ym = 1:length(datetimes)
     
-    mkdir(fullfile(infilepath, yearmonth(ym)));
+    mkdir(fullfile(infilepath, datetimes(ym)));
     
 end
 
