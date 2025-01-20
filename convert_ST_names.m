@@ -1,6 +1,6 @@
 %change_ST_name.m
-%
-% Change SoundTrap filename to match Standard timing
+% WARNING! WILL OVERWRITE ORIGINAL FILES IN TARGET DIRECTORY. DOES NOT PRESERVE ORIGINAL FILES! USE AT OWN RISK.
+% Convert SoundTrap filename to match Standard timing
 clear
 close all
 %%%%%%%%%%%%%%%%%
