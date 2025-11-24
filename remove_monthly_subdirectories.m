@@ -14,13 +14,13 @@
 
 %% Select directory (modify line 18)
 
-% path to parent folder (must end with \)
-parentdir = 'D:\GMB_2022_10\AMAR388.1.32000.HTI-99-HF\';
+% path to parent folder
+parentdir = 'D:\GMB_2022_10\AMAR388.1.32000.HTI-99-HF';
 
 
 %% Set up
 
-tic
+tic;
 
 % recursively find all wav files and ltsa files
 wavfiles = dir(fullfile(parentdir, '**\*.wav'));

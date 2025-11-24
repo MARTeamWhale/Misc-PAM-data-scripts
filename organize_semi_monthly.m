@@ -17,16 +17,16 @@
 
 %% Select directory (modify line 21)
 
-% path to input .wav file directory (must end with \)
-infilepath = 'D:\CSE_2023_08\AMAR668.1.32000\';
+% path to input .wav file directory
+infilepath = 'D:\CSE_2023_08\AMAR668.1.32000';
 
 
 %% Set up
 
-tic
+tic;
 
 % get list of wav file names
-files = dir([infilepath '*.wav']);
+files = dir(fullfile(infilepath, '*.wav'));
 
 % read datetime stamps from file names and format as year-month
 filemonth = MUCA.time.readDateTime({files.name}, 'yyyy-MM');
