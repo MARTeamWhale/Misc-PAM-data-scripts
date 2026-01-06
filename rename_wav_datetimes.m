@@ -31,8 +31,6 @@ FirstFileTime = datetime("2001-01-01 00:00:00");
 %% Run script
 
 tic;
-clear
-close all
 
 % calculate time difference
 TimeDiff = StartDateTime - FirstFileTime;
